@@ -28,7 +28,7 @@
 
             for (int i = input.Length - 1; i >= 0; i--)
             {
-                result += input[i]; 
+                result += input[i];
             }
             return result;
 
@@ -60,7 +60,7 @@
         public static (int[], int[]) SeparateEvenOdd(int[] numbers)
         {
             List<int> ciftsayilar = new List<int>();
-            List<int> teksayilar = new List<int> ();
+            List<int> teksayilar = new List<int>();
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -76,6 +76,72 @@
 
             return (ciftsayilar.ToArray(), teksayilar.ToArray());
         }
+
+        public static int FindLargestNumber(int[] numbers)
+        {
+            int enbuyukdeger = numbers[0];
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] > enbuyukdeger)
+                {
+                    enbuyukdeger = numbers[i];
+                }
+            }
+
+            return enbuyukdeger;
+        }
+
+        public static bool IsPalindrome(string word)
+        {
+            if (string.IsNullOrEmpty(word))
+                return false; 
+
+            string donenkelime = ""; 
+
+            for (int i = word.Length - 1; i >= 0; i--)
+            {
+                donenkelime += word[i];
+            }
+
+            return word == donenkelime;
+        }
+
+        public static int Fibonacci(int n)
+        {
+            if (n <= 0)
+                return 0;
+            if (n == 1) 
+                return 1;
+
+            return Fibonacci(n - 1) + Fibonacci(n - 2);
+            
+        }
+
+        public static int Factorial(int n)
+        {
+            if (n == 0 || n == 1)
+                return 1; 
+
+            int sonuc = 1; 
+
+            for (int i = 2; i <= n; i++)
+            {
+                sonuc *= i; 
+            }
+
+            return sonuc;
+        }
+
+        public static int FactorialRecursive(int n)
+        {
+            if (n == 0 || n == 1)
+                return 1; 
+
+            return n * FactorialRecursive(n - 1);
+        }
+
+
 
     }
 }

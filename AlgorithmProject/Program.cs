@@ -1,4 +1,5 @@
-﻿using AlgorithmProject.SortingAlgorithms;
+﻿using AlgorithmProject.BasicAlgorithms;
+using AlgorithmProject.SortingAlgorithms;
 public class Program
 {
     static void Main(string[] args)
@@ -15,6 +16,7 @@ public class Program
             Console.WriteLine("5. Kriptografi Algoritmaları");
             Console.WriteLine("6. Optimizasyon Algoritmaları");
             Console.WriteLine("7. Matematik ve Geometri Algoritmaları");
+            Console.WriteLine("8. Basic Algoritms");
             Console.WriteLine("0. Çıkış");
             Console.Write("Seçiminiz: ");
             string choice = Console.ReadLine();
@@ -42,6 +44,9 @@ public class Program
                 case "7":
                     MathAndGeometryAlgorithmsMenu();
                     break;
+                case "8":
+                    BasicAlgorithmsMenu();
+                    break;
                 case "0":
                     Console.WriteLine("Çıkış yapılıyor...");
                     return;
@@ -54,7 +59,6 @@ public class Program
             Console.ReadKey();
         }
     }
-
     static void SortingAlgorithmsMenu()
     {
         while (true)
@@ -105,7 +109,6 @@ public class Program
             Console.ReadKey();
         }
     }
-
     static void SearchAlgorithmsMenu()
     {
         while (true)
@@ -137,4 +140,116 @@ public class Program
     static void CryptographicAlgorithmsMenu() {}
     static void OptimizationAlgorithmsMenu() {}
     static void MathAndGeometryAlgorithmsMenu() {}
+    static void BasicAlgorithmsMenu()
+    {
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("Lütfen bir algoritma seçin:");
+            Console.WriteLine("1. En Küçük Sayıyı Bul");
+            Console.WriteLine("2. String Ters Çevir");
+            Console.WriteLine("3. Tekrar Eden Sayıları Bul");
+            Console.WriteLine("4. Tek ve Çift Sayıları Ayır");
+            Console.WriteLine("5. En Büyük Sayıyı Bul");
+            Console.WriteLine("6. Palindrom Kontrolü");
+            Console.WriteLine("7. Fibonacci Hesapla");
+            Console.WriteLine("8. Faktöriyel Hesapla");
+            Console.WriteLine("0. Çıkış");
+            Console.Write("Seçiminiz: ");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    FindSmallestNumberExample();
+                    break;
+                case "2":
+                    ReverseStringExample();
+                    break;
+                case "3":
+                    FindDuplicatesExample();
+                    break;
+                case "4":
+                    SeparateEvenOddExample();
+                    break;
+                case "5":
+                    FindLargestNumberExample();
+                    break;
+                case "6":
+                    IsPalindromeExample();
+                    break;
+                case "7":
+                    FibonacciExample();
+                    break;
+                case "8":
+                    FactorialExample();
+                    break;
+                case "0":
+                    Console.WriteLine("Çıkış yapılıyor...");
+                    return;
+                default:
+                    Console.WriteLine("Geçersiz seçim. Lütfen tekrar deneyin.");
+                    break;
+            }
+
+            Console.WriteLine("\nDevam etmek için bir tuşa basın...");
+            Console.ReadKey();
+        }
+        static void FindSmallestNumberExample()
+        {
+            int[] numbers = { 3, 1, 5, 7, 2 };
+            int min = RandomAlgoritms.FindSmallestNumber(numbers);
+            Console.WriteLine($"En küçük sayı: {min}");
+        }
+
+        static void ReverseStringExample()
+        {
+            string input = "hello";
+            string reversed = RandomAlgoritms.ReverseString(input);
+            Console.WriteLine($"Ters çevrilmiş string: {reversed}");
+        }
+
+        static void FindDuplicatesExample()
+        {
+            int[] numbers = { 1, 2, 3, 4, 5, 2, 4, 7 };
+            int[] duplicates = RandomAlgoritms.FindDuplicates(numbers);
+            Console.WriteLine($"Tekrar eden sayılar: {string.Join(", ", duplicates)}");
+        }
+
+        static void SeparateEvenOddExample()
+        {
+            int[] numbers = { 1, 2, 3, 4, 5, 6 };
+            var (evens, odds) = RandomAlgoritms.SeparateEvenOdd(numbers);
+            Console.WriteLine($"Çift sayılar: {string.Join(", ", evens)}");
+            Console.WriteLine($"Tek sayılar: {string.Join(", ", odds)}");
+        }
+
+        static void FindLargestNumberExample()
+        {
+            int[] numbers = { 3, 1, 5, 7, 2 };
+            int max = RandomAlgoritms.FindLargestNumber(numbers);
+            Console.WriteLine($"En büyük sayı: {max}");
+        }
+
+        static void IsPalindromeExample()
+        {
+            string word = "radar";
+            bool result = RandomAlgoritms.IsPalindrome(word);
+            Console.WriteLine($"'{word}' bir palindrom mu? {result}");
+        }
+
+        static void FibonacciExample()
+        {
+            int n = 7;
+            int fib = RandomAlgoritms.Fibonacci(n);
+            Console.WriteLine($"{n}. Fibonacci sayısı: {fib}");
+        }
+
+        static void FactorialExample()
+        {
+            int n = 5;
+            int factorial = RandomAlgoritms.Factorial(n);
+            Console.WriteLine($"{n}! = {factorial}");
+        }
+    }
 }
