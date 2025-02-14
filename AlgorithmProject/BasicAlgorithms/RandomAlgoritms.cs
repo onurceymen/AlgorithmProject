@@ -56,5 +56,26 @@
 
             return duplicates.ToArray();
         }
+
+        public static (int[], int[]) SeparateEvenOdd(int[] numbers)
+        {
+            List<int> ciftsayilar = new List<int>();
+            List<int> teksayilar = new List<int> ();
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] % 2 == 0)
+                {
+                    ciftsayilar.Add(numbers[i]);
+                }
+                else
+                {
+                    teksayilar.Add(numbers[i]);
+                }
+            }
+
+            return (ciftsayilar.ToArray(), teksayilar.ToArray());
+        }
+
     }
 }
